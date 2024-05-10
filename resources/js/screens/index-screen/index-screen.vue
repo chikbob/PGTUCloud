@@ -9,13 +9,8 @@
             <div> {{ file.name }}</div>
             <div> {{ formatBytes(file.size) }}</div>
         </div>
-        <div v-if="requestComplete == true">
-            <br>
-            <div>
-                Запрос отправлен, перезагрузите страницу!
-            </div>
-            <br>
-        </div>
+        <a href="/register">Зарегистрироваться</a>
+        <br>
         <br>
         <div v-for="file in model.file">
             <div>{{ file }}</div>

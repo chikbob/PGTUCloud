@@ -1,5 +1,9 @@
 <template>
     <div :class="cnFileScreen('')">
+        <div>
+            Список файлів:
+        </div>
+        <br>
         <div v-for="file in model.file">
             <div>{{ file }}</div>
         </div>

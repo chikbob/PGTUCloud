@@ -2,6 +2,7 @@
 
 use \App\Http\Controllers\AddFileController;
 use App\Http\Controllers\ListFileController;
+use App\Http\Controllers\UserController;
 use App\Models\File;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -22,3 +23,6 @@ Route::get('/', fn() => Inertia::render('index',
 ));
 Route::resource('file', AddFileController::class);
 Route::get('list', ListFileController::class);
+
+Route::get('register', fn() => Inertia::render('register',));
+Route::post('register/success', [UserController::class, 'register']);

@@ -29,6 +29,6 @@ class AddFileController extends Controller
             'size' => $request->size,
             'type' => $request->type,
         ]);
-        return redirect('http://127.0.0.1:8000/list');
+        return redirect('/list');
     }
 }
