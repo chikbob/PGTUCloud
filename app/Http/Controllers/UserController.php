@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Inertia\Inertia;
 
 class UserController extends Controller
 {
@@ -24,7 +26,31 @@ class UserController extends Controller
             'password' => Hash::make($validatedData['password']),
         ]);
 
-        // Возвращение ответа
-        return response()->json(['message' => 'Пользователь успешно зарегистрирован'], 201);
+        return redirect('http://127.0.0.1:8000/login');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            // Аутентификация успешна
+            return redirect('http://127.0.0.1:8000');
+        } else {
+            // Неверные учетные данные
+            return redirect('http://127.0.0.1:8000/login');
+        }
+    }
+
+    public function user(Request $request)
+    {
+        $user = Auth::user(); // Получаем текущего аутентифицированного пользователя
+
+        return Inertia::render('index', [
+            'user' => $user
+        ]);
     }
 }

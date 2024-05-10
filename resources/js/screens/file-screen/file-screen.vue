@@ -1,7 +1,7 @@
 <template>
     <div :class="cnFileScreen('')">
         <div>
-            Список файлів:
+            Список файлов:
         </div>
         <br>
         <div v-for="file in model.file">
@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import {cnFileScreen} from "./file-screen.const"
-import {fileModel} from "../index-screen/file-screen.model"
+import {fileModel} from "./file-screen.model"
 
 const model = fileModel();
 </script>

@@ -1,12 +1,13 @@
 <template>
     <PageLayout>
-        <RegisterScreen></RegisterScreen>
+        <LoginScreen></LoginScreen>
     </PageLayout>
 </template>
 
 <script setup lang="ts">
+
 import PageLayout from "@/components/layouts/page-layout/page-layout.vue";
-import RegisterScreen from "../screens/register-screen/register-screen.vue";
+import LoginScreen from "@/screens/login-screen/login-screen.vue";
 </script>
 
 <style scoped>

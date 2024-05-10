@@ -9,10 +9,12 @@ use Inertia\Response;
 
 class ListFileController extends Controller
 {
-    public function __invoke(): Response
+    public function __invoke(Request $request): Response
     {
+        $user = $request->user(); // Получаем текущего аутентифицированного пользователя
+        $files = File::where('user_id', $user->id)->get(); // Получаем список файлов для определенного пользователя
         return Inertia::render('files', [
-            'files' => File::all()
+            'files' => $files
         ]);
     }
 }

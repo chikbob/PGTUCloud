@@ -11,19 +11,22 @@ use Inertia\Response;
 
 class AddFileController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $files = FileResource::collection(File::all());
 
         return inertia('Files/Index', compact('files'));
     }
 
-    public function create() {
+    public function create()
+    {
         return inertia('Files/Create');
     }
 
     public function store(Request $request)
     {
         File::create([
+            'user_id' => $request->user_id,
             'name' => $request->name,
             'lastModifiedDate' => $request->lastModifiedDate,
             'size' => $request->size,
