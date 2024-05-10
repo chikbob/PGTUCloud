@@ -64,7 +64,7 @@ function submit() {
         console.log(formData)
         requestComplete = true
 
-        Inertia.post('add', formData)
+        Inertia.post('file', formData)
     }
 }
 </script>

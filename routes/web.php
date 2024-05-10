@@ -1,6 +1,7 @@
 <?php
 
-use \App\Http\Controllers\FileController;
+use \App\Http\Controllers\AddFileController;
+use App\Http\Controllers\ListFileController;
 use App\Models\File;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -19,4 +20,5 @@ use Inertia\Inertia;
 Route::get('/', fn() => Inertia::render('index',
     ['files' => File::all()]
 ));
-Route::resource('add', FileController::class);
+Route::resource('file', AddFileController::class);
+Route::get('list', ListFileController::class);

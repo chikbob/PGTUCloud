@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class FileController extends Controller
+class AddFileController extends Controller
 {
     public function index() {
         $files = FileResource::collection(File::all());
@@ -29,6 +29,6 @@ class FileController extends Controller
             'size' => $request->size,
             'type' => $request->type,
         ]);
-        return redirect()->route('add.store');
+        return redirect('http://127.0.0.1:8000/list');
     }
 }
