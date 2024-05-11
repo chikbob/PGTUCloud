@@ -9,8 +9,18 @@ use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class AddFileController extends Controller
+class FileController extends Controller
 {
+
+    public function __invoke(Request $request): Response
+    {
+        $user = $request->user(); // Получаем текущего аутентифицированного пользователя
+        $files = File::where('user_id', $user->id)->get(); // Получаем список файлов для определенного пользователя
+        return Inertia::render('files', [
+            'files' => $files
+        ]);
+    }
+
     public function index()
     {
         $files = FileResource::collection(File::all());
@@ -33,5 +43,11 @@ class AddFileController extends Controller
             'type' => $request->type,
         ]);
         return redirect('/list');
+    }
+
+    public function destroy(File $file)
+    {
+        $file->delete();
+        return redirect('/');
     }
 }

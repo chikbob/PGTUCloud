@@ -13,7 +13,6 @@ const props = defineProps({
     files: Object,
 })
 
-
 const model = fileModel()
 model.init(props.files)
 </script>

@@ -1,20 +1,34 @@
 <template>
     <div :class="cnIndexScreen('')">
+        <a href="/list">
+            Список файлов
+        </a>
+        <br>
+        <br>
         <form @submit.prevent="submit">
             <input ref="fileInput" type="file" @input="form.file" @change="handleFileChange"/>
             <button type="submit">Post</button>
         </form>
-        <a href="/register">Зарегистрироваться</a>
-        <br>
-        <br>
-        <a href="/login">Уже есть аккаунт?</a>
-        <br>
-        <br>
+        <div v-if="model.file == null">
+            <Link href="/register">Зарегистрироваться</Link>
+            <br>
+            <br>
+            <Link href="/login">Уже есть аккаунт?</Link>
+            <br>
+            <br>
+        </div>
+        <div v-else>
+            <div>
+                Добрый день {{ model.file.name }}
+            </div>
+            <Link href="/logout" method="post">Выйти</Link>
+        </div>
+
         <div v-if="regUser" class="modal" @click="closeModal">
             <div class="modal-content" @click.stop>
                 <h2>Модальное окно</h2>
                 <p>Содержимое модального окна...</p>
-                <div><a href="/login">Войти</a><br><a href="/register">Зарегистрироваться</a></div>
+                <div><Link href="/login">Войти</Link><br><Link href="/register">Зарегистрироваться</Link></div>
                 <br>
                 <button @click="regUser = false" class="close-button">Закрыть</button>
             </div>
@@ -29,8 +43,9 @@
 import {cnIndexScreen} from "./index-screen.const"
 import {fileModel} from "../file-screen/file-screen.model"
 import {useForm} from '@inertiajs/vue3'
+import { Link } from '@inertiajs/inertia-vue3'
 import {Inertia} from '@inertiajs/inertia'
-import {ref, watch, onMounted} from 'vue';
+import {ref} from 'vue';
 
 const model = fileModel();
 
@@ -44,12 +59,6 @@ const form = useForm({
 
 function handleFileChange() {
     files.value = Array.from(fileInput.value?.files || [])
-}
-
-function formatBytes(a, b = 2) {
-    if (!+a) return "0 Bytes";
-    const c = 0 > b ? 0 : b, d = Math.floor(Math.log(a) / Math.log(1024));
-    return `${parseFloat((a / Math.pow(1024, d)).toFixed(c))} ${["Байт", "Кб", "Мб", "Гб", "Тб", "Пб", "Еб", "Зб", "Уб"][d]}`
 }
 
 function submit() {
@@ -72,10 +81,6 @@ function submit() {
         }
     }
 }
-
-watch(regUser, (newValue, oldValue) => {
-    console.log('regUser изменился:', newValue);
-});
 </script>
 
 <style lang="scss" scoped>

@@ -1,6 +1,6 @@
 <?php
 
-use \App\Http\Controllers\AddFileController;
+use \App\Http\Controllers\FileController;
 use App\Http\Controllers\ListFileController;
 use App\Http\Controllers\UserController;
 use App\Http\Resources\UserResource;
@@ -20,13 +20,17 @@ use Inertia\Inertia;
 */
 
 Route::get('/', [UserController::class, 'user']);
-Route::resource('file', AddFileController::class);
-Route::get('list', ListFileController::class);
+Route::delete('/', [UserController::class, 'user']);
+Route::resource('file', FileController::class);
+
+Route::resource('list', ListFileController::class);
+Route::delete('list/{list}', [ListFileController::class, 'destroy'])->name('list.destroy');
 
 Route::get('register', fn() => Inertia::render('register',));
 Route::post('register/success', [UserController::class, 'register']);
 
 Route::group(['middleware' => 'web'], function () {
-    Route::get('login', fn() => Inertia::render('login',));
+    Route::get('login', fn() => Inertia::render('login'));
     Route::post('login/success', [UserController::class, 'login']);
+    Route::post('logout', [UserController::class, 'logout']);
 });
