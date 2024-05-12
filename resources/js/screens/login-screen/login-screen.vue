@@ -10,15 +10,18 @@
                 <label for="password">Пароль:</label>
                 <input type="password" id="password" v-model="form.password" required>
             </div>
-            <button type="submit">Войти</button>
+            <button type="submit" @click="timeoutFunction" :disabled="!isFormValid">Войти</button>
+            {{ showErrorMessage }}
+            <div class="error-message" v-if="showErrorMessage">
+                {{ showMessage() }}
+            </div>
         </form>
     </div>
 </template>
 
 <script setup lang="ts">
 import {cnLoginScreen} from "./login-screen.const"
-import {defineProps, ref} from 'vue'
-import {useStore} from 'pinia'
+import {defineProps, ref, computed} from 'vue'
 import {Inertia} from '@inertiajs/inertia'
 
 const form = ref({
@@ -26,9 +29,28 @@ const form = ref({
     password: ''
 })
 
+let errorMessage = ref('');
+let showErrorMessage = ref(false);
+
+const isFormValid = computed(() => {
+    return form.value.email.length > 5 && form.value.password.length >= 5;
+});
+
 function loginUser() {
-    console.log('work')
-    Inertia.post('/login/success', form.value);
+    if (isFormValid.value) {
+        showErrorMessage.value = false
+        Inertia.post('/login/success', form.value);
+    }
+}
+
+function showMessage() {
+    return errorMessage.value = 'Неверный логин или пароль'
+}
+
+function timeoutFunction() {
+    return setTimeout(() => {
+        showErrorMessage.value = true
+    }, 2000);
 }
 </script>
 

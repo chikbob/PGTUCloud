@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class UserController extends Controller
@@ -26,7 +27,7 @@ class UserController extends Controller
             'password' => Hash::make($validatedData['password']),
         ]);
 
-        return redirect('http://127.0.0.1:8000/login');
+        return redirect('http://127.0.0.1:8000/page/login');
     }
 
     public function login(Request $request)
@@ -35,13 +36,17 @@ class UserController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
+        $user = Auth::user();
 
         if (Auth::attempt($credentials)) {
-            // Аутентификация успешна
-            return redirect('http://127.0.0.1:8000');
+            return redirect('http://127.0.0.1:8000/');
         } else {
-            // Неверные учетные данные
-            return redirect('http://127.0.0.1:8000/login');
+            return [
+                Inertia::render('login', [
+                    'user' => $user
+                ]),
+                redirect('http://127.0.0.1:8000/')
+            ];
         }
     }
 
@@ -62,6 +67,8 @@ class UserController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        $user = Auth::user();
+
+        return redirect()->to('/login');
     }
 }

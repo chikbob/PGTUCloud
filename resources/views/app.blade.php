@@ -11,7 +11,7 @@
     @vite('resources/js/app.js')
     @inertiaHead
 
-    <title>College of Technology</title>
+    <title>PGTUCloud</title>
 </head>
 
 <body>
