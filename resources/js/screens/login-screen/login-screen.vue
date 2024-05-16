@@ -11,7 +11,6 @@
                 <input type="password" id="password" v-model="form.password" required>
             </div>
             <button type="submit" @click="timeoutFunction" :disabled="!isFormValid">Войти</button>
-            {{ showErrorMessage }}
             <div class="error-message" v-if="showErrorMessage">
                 {{ showMessage() }}
             </div>

@@ -27,7 +27,7 @@ class UserController extends Controller
             'password' => Hash::make($validatedData['password']),
         ]);
 
-        return redirect('http://127.0.0.1:8000/page/login');
+        return redirect('http://127.0.0.1:8000/login');
     }
 
     public function login(Request $request)
@@ -36,17 +36,13 @@ class UserController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-        $user = Auth::user();
 
         if (Auth::attempt($credentials)) {
-            return redirect('http://127.0.0.1:8000/');
+            // Аутентификация успешна
+            return redirect('http://127.0.0.1:8000');
         } else {
-            return [
-                Inertia::render('login', [
-                    'user' => $user
-                ]),
-                redirect('http://127.0.0.1:8000/')
-            ];
+            // Неверные учетные данные
+            return redirect('http://127.0.0.1:8000/login')->with('error', 'Неверный логин или пароль');
         }
     }
 

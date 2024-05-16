@@ -13,4 +13,17 @@ class FileModel extends BaseModel {
     }
 }
 
+class UserModel extends BaseModel {
+    constructor() {
+        super();
+        this.user = undefined;
+    }
+
+    init(user) {
+        this.user = user;
+    }
+}
+
+
 export const fileModel = useStore.bind(undefined, FileModel);
+export const userModel = useStore.bind(undefined, UserModel);

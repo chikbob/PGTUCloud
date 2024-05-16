@@ -14,7 +14,8 @@ class ListFileController extends Controller
         $user = $request->user(); // Получаем текущего аутентифицированного пользователя
         $files = File::where('user_id', $user->id)->get(); // Получаем список файлов для определенного пользователя
         return Inertia::render('files', [
-            'files' => $files
+            'files' => $files,
+            'user' => $user
         ]);
     }
 
