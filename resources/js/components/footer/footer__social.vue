@@ -4,18 +4,18 @@
             Мы в соцсетях
         </header>
         <div :class="cnFooter('social-list')">
-            <a href="" :class="cnFooter('social-list_link')">
+            <a href="https://vk.com/pstu__mariupol" target="_blank" :class="cnFooter('social-list_link')">
                 <img :class="cnFooter('social-list_img')" src="../../../../public/img/vk.png" alt="vk.png">
             </a>
-            <a href="" :class="cnFooter('social-list_link')">
+            <a href="https://t.me/pstu_mariupol" target="_blank" :class="cnFooter('social-list_link')">
                 <img :class="cnFooter('social-list_img')" src="../../../../public/img/telegram.png" alt="telegram.png">
             </a>
         </div>
         <div :class="cnFooter('social-list')">
-            <a href="" :class="cnFooter('social-list_link')">
+            <a href="https://m.ok.ru/dk?st.cmd=altGroupMain&st.groupId=70000000791309&_prevCmd=userMain&tkn=338" target="_blank" :class="cnFooter('social-list_link')">
                 <img :class="cnFooter('social-list_img')" src="../../../../public/img/ok.png" alt="ok.png">
             </a>
-            <a href="" :class="cnFooter('social-list_link')">
+            <a href="https://rutube.ru/channel/27275800/about/" target="_blank" :class="cnFooter('social-list_link')">
                 <img :class="cnFooter('social-list_img')" src="../../../../public/img/rutube.png" alt="rutube.png">
             </a>
         </div>

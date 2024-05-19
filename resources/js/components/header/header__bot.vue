@@ -5,7 +5,10 @@
             <a href="/" :class="cnHeader('bot-list_link')">
                 Главная
             </a>
-            <a href="/list" :class="cnHeader('bot-list_link')">
+            <div v-if="modelUser.user == null" :class="cnHeader('bot-list_link')">
+                Список файлов
+            </div>
+            <a v-else href="/list" :class="cnHeader('bot-list_link')">
                 Список файлов
             </a>
             <a href="https://pstu.su/universitet/" target="_blank" :class="cnHeader('bot-list_link')">
@@ -64,6 +67,7 @@ let logout = ref(false)
                 color: rgb(24, 24, 24);
                 font-weight: 600;
                 text-decoration: none;
+                cursor: pointer;
 
                 margin: 0 13px 0;
             }
