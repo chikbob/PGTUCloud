@@ -12,10 +12,10 @@
             <input :class="cnIndexScreen('form-upload_file')" ref="fileInput" type="file" @input="form.file"
                    @change="handleFileChange"/>
             <button v-if="modelUser.user.id != null" :class="cnIndexScreen('form-upload_submit')" type="submit">
-                Загрузить Reg
+                Загрузить
             </button>
             <button v-else :class="cnIndexScreen('form-upload_submit')" @click="unReg">
-                Загрузить unReg
+                Загрузить
             </button>
         </form>
     </div>
