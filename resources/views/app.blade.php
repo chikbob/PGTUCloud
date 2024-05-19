@@ -8,6 +8,7 @@
     <script src="https://unpkg.com/vue@next/dist/vue.global.prod.js"></script>
     <link rel="icon" href="../img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../sass/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @vite('resources/js/app.js')
     @inertiaHead
 

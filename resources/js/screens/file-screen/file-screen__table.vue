@@ -36,6 +36,7 @@
 import {cnFileScreen} from "./file-screen.const"
 import {fileModel} from "./file-screen.model"
 import {Inertia} from '@inertiajs/inertia'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 const model = fileModel();
 
@@ -60,13 +61,33 @@ function formatDateTime(dateTimeString) {
 }
 
 function deleteFile(id) {
-    if (confirm('Вы уверенны?')) {
-        Inertia.delete(`file/${id}`, id)
-    }
+    Swal.fire({
+        title: "Вы уверены?",
+        text: "Вы не сможете это вернуть!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Да, удалить!",
+        cancelButtonText: "Отмена",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Удалено!",
+                text: "Ваш файл удален.",
+                icon: "success"
+            });
+            Inertia.delete(`file/${id}`, id)
+        }
+    });
 }
 
 function soon() {
-    alert('Эта функция в разработке!')
+    Swal.fire({
+        title: "Что произошло?",
+        text: "Эта функция еще недоступна!",
+        icon: "question"
+    });
 }
 </script>
 

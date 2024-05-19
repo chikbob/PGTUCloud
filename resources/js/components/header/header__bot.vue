@@ -5,7 +5,7 @@
             <a href="/" :class="cnHeader('bot-list_link')">
                 Главная
             </a>
-            <div v-if="modelUser.user == null" :class="cnHeader('bot-list_link')">
+            <div v-if="modelUser.user == null" @click="regAlert" :class="cnHeader('bot-list_link')">
                 Список файлов
             </div>
             <a v-else href="/list" :class="cnHeader('bot-list_link')">
@@ -27,7 +27,7 @@
                 <div :class="cnHeader('bot-login_yes_name')">
                     {{ modelUser.user.name }}
                 </div>
-                <Link @click="logout = true" href="/logout" method="post" :class="cnHeader('bot-login_yes_exit')">
+                <Link @click="exit()" href="/logout" method="post" :class="cnHeader('bot-login_yes_exit')">
                     Выйти
                 </Link>
             </div>
@@ -44,6 +44,35 @@ import {ref} from 'vue'
 const modelUser = userModel();
 
 let logout = ref(false)
+
+function regAlert() {
+    Swal.fire({
+        title: "У вас нет аккаунта?",
+        text: `Зарегистрируйтесь или войдите в аккаунт!`,
+        icon: "question"
+    });
+}
+
+function exit() {
+    let timerInterval;
+    Swal.fire({
+        title: "Выходим из аккаунта",
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: () => {
+            Swal.showLoading();
+            const timer = Swal.getPopup().querySelector("b");
+            timerInterval = setInterval(() => {
+                timer.textContent = `${Swal.getTimerLeft()}`;
+            }, 100);
+        },
+        willClose: () => {
+            clearInterval(timerInterval);
+        }
+    });
+
+    return logout = true
+}
 </script>
 
 <style lang="scss" scoped>

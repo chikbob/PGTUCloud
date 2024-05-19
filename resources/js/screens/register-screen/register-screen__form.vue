@@ -47,7 +47,7 @@ const isFormValid = computed(() => {
 });
 
 function showMessage() {
-    return errorMessage.value = 'Неверный логин или пароль'
+    return errorMessage.value = 'Неверные данные!'
 }
 
 function registerUser() {

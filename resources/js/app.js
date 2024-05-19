@@ -2,6 +2,8 @@ import {createApp, h} from 'vue';
 import {createInertiaApp} from '@inertiajs/inertia-vue3';
 import {createPinia} from "pinia";
 
+import 'sweetalert2/src/sweetalert2.scss'
+
 const pinia = createPinia();
 
 createInertiaApp({

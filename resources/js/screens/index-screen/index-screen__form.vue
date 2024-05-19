@@ -11,21 +11,13 @@
         <form :class="cnIndexScreen('form-upload')" @submit.prevent="submit">
             <input :class="cnIndexScreen('form-upload_file')" ref="fileInput" type="file" @input="form.file"
                    @change="handleFileChange"/>
-            <button :class="cnIndexScreen('form-upload_submit')" type="submit">Загрузить</button>
+            <button v-if="modelUser.user.id != null" :class="cnIndexScreen('form-upload_submit')" type="submit">
+                Загрузить Reg
+            </button>
+            <button v-else :class="cnIndexScreen('form-upload_submit')" @click="unReg">
+                Загрузить unReg
+            </button>
         </form>
-        <div :class="cnIndexScreen('modal')" v-if="regUser" class="modal" @click="closeModal">
-            <div :class="cnIndexScreen('modal-content')" class="modal-content" @click.stop>
-                <h2>Модальное окно</h2>
-                <p>Содержимое модального окна...</p>
-                <div>
-                    <Link href="/login">Войти</Link>
-                    <br>
-                    <Link href="/register">Зарегистрироваться</Link>
-                </div>
-                <br>
-                <button :class="cnIndexScreen('modal-content_close')" @click="regUser = false" class="close-button">Закрыть</button>
-            </div>
-        </div>
     </div>
 </template>
 
@@ -35,7 +27,7 @@ import {fileModel, userModel} from "../file-screen/file-screen.model"
 import {useForm} from '@inertiajs/vue3'
 
 import {Inertia} from '@inertiajs/inertia'
-import {ref} from 'vue';
+import {computed, ref} from 'vue';
 import {Link} from "@inertiajs/inertia-vue3";
 
 const modelUser = userModel();
@@ -53,9 +45,7 @@ function handleFileChange() {
 }
 
 function submit() {
-    if (modelUser.file == null && files.value.length == 0) {
-        regUser.value = true;
-    } else {
+    if (files.value.length != 0) {
         for (let file of files.value) {
             const formData = {
                 user_id: modelUser.user.id,
@@ -67,10 +57,43 @@ function submit() {
             if (formData.type.length == 0) {
                 formData.type = "Not found"
             }
-
+            load()
             Inertia.post('file', formData)
         }
+    } else {
+        Swal.fire({
+            icon: "error",
+            title: "Вы не добавили файл!",
+            text: "Пожалуйста выберите файл который хотите загрузить!"
+        });
     }
+}
+
+function unReg() {
+    Swal.fire({
+        title: "У вас нет аккаунта?",
+        text: `Зарегистрируйтесь или войдите в аккаунт!`,
+        icon: "question"
+    });
+}
+
+function load() {
+    let timerInterval;
+    Swal.fire({
+        title: "Загружаем файл",
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: () => {
+            Swal.showLoading();
+            const timer = Swal.getPopup().querySelector("b");
+            timerInterval = setInterval(() => {
+                timer.textContent = `${Swal.getTimerLeft()}`;
+            }, 100);
+        },
+        willClose: () => {
+            clearInterval(timerInterval);
+        }
+    });
 }
 </script>
 
