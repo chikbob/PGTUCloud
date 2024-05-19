@@ -1,5 +1,8 @@
 <template>
-    <div :class="cnFileScreen('table')">
+    <div :class="cnFileScreen('table-empty')" v-if="model.file.length <= 0">
+        Список пуст!
+    </div>
+    <div :class="cnFileScreen('table')" v-else>
         <div :class="cnFileScreen('table-thead')">
             <div :class="cnFileScreen('table-thead_tr')">
                 <div :class="cnFileScreen('table-thead_th')">Название</div>
@@ -17,7 +20,7 @@
                 <div :class="cnFileScreen('table-tbody_td')">{{ formatBytes(file.size) }}</div>
                 <div :class="cnFileScreen('table-tbody_td')">{{ formatDateTime(file.updated_at) }}</div>
                 <div :class="cnFileScreen('table-tbody_td')">
-                    <button :class="cnFileScreen('table-tbody_td_load')" @click="deleteFile(file.id)" type="submit">
+                    <button :class="cnFileScreen('table-tbody_td_load')" @click="soon" type="submit">
                         Установить
                     </button>
                     <button :class="cnFileScreen('table-tbody_td_del')" @click="deleteFile(file.id)" type="submit">
@@ -61,6 +64,10 @@ function deleteFile(id) {
         Inertia.delete(`file/${id}`, id)
     }
 }
+
+function soon() {
+    alert('Эта функция в разработке!')
+}
 </script>
 
 <style lang="scss" scoped>
@@ -71,6 +78,12 @@ function deleteFile(id) {
 
         border: 2px solid rgb(24, 24, 24);
         border-radius: 10px;
+
+        &-empty {
+            margin: 100px 0 400px;
+
+            font-size: 34px;
+        }
 
         &-thead {
             display: flex;
