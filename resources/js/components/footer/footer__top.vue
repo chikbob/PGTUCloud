@@ -14,7 +14,15 @@ import FooterSocial from "./footer__social.vue"
 </script>
 
 <style lang="scss" scoped>
+@import "../../../../public/sass/media_mixin.scss";
+
 .footer__top {
     display: flex;
+    justify-content: space-between;
+
+    @include _979 {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 </style>

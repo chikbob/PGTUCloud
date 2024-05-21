@@ -27,8 +27,68 @@ import {cnFooter} from "./footer.const.js";
 </script>
 
 <style lang="scss" scoped>
+@import "../../../../public/sass/media_mixin.scss";
+
 .footer__social {
     width: 300px;
+
+    @include _1570 {
+        &-header {
+            display: flex;
+            justify-content: center;
+
+            color: rgb(236, 241, 255);
+            font-size: 24px !important;
+            font-weight: 600;
+            line-height: 24px;
+
+            margin: 0 0 34px;
+        }
+
+        &-list {
+            display: flex;
+            justify-content: space-around;
+
+            margin: 0 0 20px;
+
+            &_link {
+
+            }
+
+            &_img {
+                width: 110px;
+                height: 110px;
+            }
+        }
+    }
+
+    @include _1250 {
+
+    }
+
+    @include _1170 {
+
+    }
+
+    @include _979 {
+
+    }
+
+    @include _768 {
+
+    }
+
+    @include _600 {
+
+    }
+
+    @include _480 {
+
+    }
+
+    @include _350 {
+
+    }
 
     &-header {
         display: flex;

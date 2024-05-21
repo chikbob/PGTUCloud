@@ -15,11 +15,54 @@ import {cnFooter} from "./footer.const.js";
 </script>
 
 <style lang="scss" scoped>
+@import "../../../../public/sass/media_mixin.scss";
+
 .footer__bot {
     display: flex;
     justify-content: space-between;
 
     margin: 74px 0 0;
+
+    @include _979 {
+        flex-direction: column;
+        align-items: center;
+
+        margin: 74px 0 0;
+
+        &-name {
+            width: 300px !important;
+
+            margin: 0 0 20px;
+
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 17px;
+        }
+
+        &-rights {
+            width: 300px !important;
+
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 17px;
+        }
+    }
+
+    @include _768 {
+
+    }
+
+    @include _600 {
+
+    }
+
+    @include _480 {
+
+    }
+
+    @include _350 {
+
+    }
 
     &-name {
         width: 505px;

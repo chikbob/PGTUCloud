@@ -13,7 +13,69 @@ import {cnHeader} from "./header.const.js";
 </script>
 
 <style lang="scss" scoped>
+@import "../../../../public/sass/media_mixin.scss";
+
 .header {
+    @include _600 {
+        &__top {
+            display: flex;
+            justify-content: flex-end;
+
+            &-text {
+                margin: 19px 0 0;
+
+                width: 511px;
+                height: 66px;
+
+                font-size: 14px !important;
+                font-weight: 500;
+                line-height: 14px !important;
+
+                text-align: end;
+            }
+        }
+    }
+
+    @include _480 {
+        &__top {
+            display: flex;
+            justify-content: flex-end;
+
+            &-text {
+                margin: 19px 0 0;
+
+                width: 511px;
+                height: 66px;
+
+                font-size: 12px !important;
+                font-weight: 500;
+                line-height: 12px !important;
+
+                text-align: end;
+            }
+        }
+    }
+
+    @include _350 {
+        &__top {
+            display: flex;
+            justify-content: flex-end;
+
+            &-text {
+                margin: 19px 0 0;
+
+                width: 511px;
+                height: 66px;
+
+                font-size: 10px !important;
+                font-weight: 500;
+                line-height: 10px !important;
+
+                text-align: end;
+            }
+        }
+    }
+
     &__top {
         display: flex;
         justify-content: flex-end;

@@ -1,6 +1,6 @@
 <template>
     <div :class="cnHeader('bot')">
-        <img src="../../../../public/img/logo.png">
+        <img src="../../../../public/img/logo.png" alt="logo.png">
         <div :class="cnHeader('bot-list')">
             <a href="/" :class="cnHeader('bot-list_link')">
                 Главная
@@ -76,7 +76,166 @@ function exit() {
 </script>
 
 <style lang="scss" scoped>
+@import "../../../../public/sass/media_mixin.scss";
+
 .header {
+    @include _979 {
+        &__bot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-size: 20px;
+
+            margin: 20px 0 0;
+
+            & img {
+                width: 100px;
+                height: 100px;
+            }
+
+            &-list {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                &_link {
+                    color: rgb(24, 24, 24);
+                    font-weight: 600;
+                    text-decoration: none;
+                    cursor: pointer;
+
+                    margin: 10px 0 0 !important;
+
+                    &:first-child {
+                        margin: 0 !important;
+                    }
+                }
+            }
+
+            &-login {
+                display: flex;
+                align-items: center;
+
+                &_not {
+                    display: flex;
+
+                    &_link {
+                        color: rgb(24, 24, 24);
+                        font-weight: 600;
+                        text-decoration: none;
+
+                        &:first-child {
+                            margin: 0 12px 0 0;
+                        }
+                    }
+                }
+
+                &_yes {
+                    display: flex;
+
+                    &_name {
+                        margin: 0 12px 0 0
+                    }
+
+                    &_exit {
+                        color: rgb(135, 135, 135);
+                        font-size: 20px;
+                        font-weight: 600;
+
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+
+    @include _768 {
+
+    }
+
+    @include _600 {
+        &__bot {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+
+            font-size: 20px;
+
+            margin: 20px 0 0;
+
+            & img {
+                width: 100px;
+                height: 100px;
+            }
+
+            &-list {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                margin: 20px 0;
+
+                &_link {
+                    color: rgb(24, 24, 24);
+                    font-weight: 600;
+                    text-decoration: none;
+                    cursor: pointer;
+
+                    margin: 6px 0 0 !important;
+
+                    &:first-child {
+                        margin: 0 !important;
+                    }
+                }
+            }
+
+            &-login {
+                display: flex;
+                align-items: center;
+
+                &_not {
+                    display: flex;
+
+                    &_link {
+                        color: rgb(24, 24, 24);
+                        font-weight: 600;
+                        text-decoration: none;
+
+                        &:first-child {
+                            margin: 0 12px 0 0;
+                        }
+                    }
+                }
+
+                &_yes {
+                    display: flex;
+
+                    &_name {
+                        margin: 0 12px 0 0
+                    }
+
+                    &_exit {
+                        color: rgb(135, 135, 135);
+                        font-size: 20px;
+                        font-weight: 600;
+
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+
+    @include _480 {
+
+    }
+
+    @include _350 {
+
+    }
+
     &__bot {
         display: flex;
         justify-content: space-between;

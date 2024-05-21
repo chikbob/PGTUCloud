@@ -11,7 +11,7 @@
         <form :class="cnIndexScreen('form-upload')" @submit.prevent="submit">
             <input :class="cnIndexScreen('form-upload_file')" ref="fileInput" type="file" @input="form.file"
                    @change="handleFileChange"/>
-            <button v-if="modelUser.user.id != null" :class="cnIndexScreen('form-upload_submit')" type="submit">
+            <button v-if="modelUser.user != null" :class="cnIndexScreen('form-upload_submit')" type="submit">
                 Загрузить
             </button>
             <button v-else :class="cnIndexScreen('form-upload_submit')" @click="unReg">
@@ -98,10 +98,48 @@ function load() {
 </script>
 
 <style lang="scss" scoped>
+@import "../../../../public/sass/media_mixin.scss";
+
 .index-screen {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @include _1700 {
+
+    }
+
+    @include _1570 {
+
+    }
+
+    @include _1250 {
+
+    }
+
+    @include _1170 {
+
+    }
+
+    @include _979 {
+
+    }
+
+    @include _768 {
+
+    }
+
+    @include _600 {
+
+    }
+
+    @include _480 {
+
+    }
+
+    @include _350 {
+
+    }
 
     &__form {
         width: 550px;
