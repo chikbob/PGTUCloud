@@ -59,10 +59,425 @@ function registerUser() {
 </script>
 
 <style lang="scss" scoped>
+@import "../../../../public/sass/media_mixin.scss";
+
 .register-screen {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @include _1570 {
+
+    }
+
+    @include _1250 {
+
+    }
+
+    @include _1170 {
+
+    }
+
+    @include _979 {
+
+    }
+
+    @include _768 {
+        &__form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            color: rgb(24, 24, 24);
+            font-size: 22px !important;
+            font-weight: 600;
+            line-height: 31px;
+
+            &-error {
+                color: rgb(213, 64, 64);
+
+                margin: 0 0 15px
+            }
+
+            &-name {
+                display: flex;
+                align-items: center;
+
+                margin: 0 0 17px;
+
+                &_label {
+                    display: flex;
+                    align-items: center;
+
+                    width: 130px !important;
+                    height: 50px;
+                }
+
+                &_input {
+                    width: 300px !important;
+                    height: 50px;
+
+                    padding: 0 0 0 10px;
+                }
+            }
+
+            &-checkPassword {
+                display: flex;
+                align-items: center;
+
+                margin: 0 0 17px;
+
+                &_label {
+                    display: flex;
+                    align-items: center;
+
+                    width: 130px !important;
+                    height: 50px;
+                }
+
+                &_input {
+                    width: 300px !important;
+                    height: 50px;
+
+                    padding: 0 0 0 10px;
+                }
+            }
+
+            &-email {
+                display: flex;
+                align-items: center;
+
+                margin: 0 0 17px;
+
+                &_label {
+                    display: flex;
+                    align-items: center;
+
+                    width: 130px !important;
+                    height: 50px;
+                }
+
+                &_input {
+                    width: 300px !important;
+                    height: 50px;
+
+                    padding: 0 0 0 10px;
+                }
+            }
+
+            &-password {
+                display: flex;
+                align-items: center;
+
+                &_label {
+                    display: flex;
+                    align-items: center;
+                    width: 130px !important;
+                    height: 50px;
+                }
+
+                &_input {
+                    width: 300px !important;
+                    height: 50px;
+
+                    padding: 0 0 0 10px;
+                }
+            }
+
+            &-submit {
+                width: 220px;
+                height: 55px;
+
+                margin: 80px 0 300px !important;
+
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 24px;
+            }
+        }
+    }
+
+    @include _600 {
+
+    }
+
+    @include _480 {
+        &__form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            color: rgb(24, 24, 24);
+            font-size: 20px !important;
+            font-weight: 600;
+            line-height: 31px;
+
+            &-error {
+                color: rgb(213, 64, 64);
+
+                margin: 0 0 15px
+            }
+
+            &-name {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start !important;
+
+                margin: 0 0 17px;
+
+                &_label {
+                    display: flex;
+                    align-items: center;
+
+                    width: 130px !important;
+                    height: 50px;
+                }
+
+                &_input {
+                    width: 300px !important;
+                    height: 50px;
+
+                    padding: 0 0 0 10px;
+                }
+            }
+
+            &-checkPassword {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start !important;
+
+                &_label {
+                    display: flex;
+                    align-items: center;
+                    width: 300px !important;
+                    height: 50px;
+                }
+
+                &_input {
+                    width: 300px !important;
+                    height: 50px;
+
+                    padding: 0 0 0 10px;
+                }
+            }
+
+            &-email {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start !important;
+
+                margin: 0 0 17px;
+
+                &_label {
+                    display: flex;
+                    align-items: center;
+
+                    width: 130px !important;
+                    height: 50px;
+                }
+
+                &_input {
+                    width: 300px !important;
+                    height: 50px;
+
+                    padding: 0 0 0 10px;
+                }
+            }
+
+            &-password {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start !important;
+
+                &_label {
+                    display: flex;
+                    align-items: center;
+                    width: 130px !important;
+                    height: 50px;
+                }
+
+                &_input {
+                    width: 300px !important;
+                    height: 50px;
+
+                    padding: 0 0 0 10px;
+                }
+            }
+
+            &-submit {
+                width: 220px;
+                height: 55px;
+
+                margin: 80px 0 300px !important;
+
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 24px;
+            }
+        }
+    }
+
+    @include _350 {
+        &__form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            color: rgb(24, 24, 24);
+            font-size: 16px !important;
+            font-weight: 600;
+            line-height: 31px;
+
+            &-error {
+                color: rgb(213, 64, 64);
+
+                margin: 0 0 15px
+            }
+
+            &-name {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start !important;
+
+                margin: 0 0 17px;
+
+                &_label {
+                    display: flex;
+                    align-items: center;
+
+                    width: 130px !important;
+                    height: 50px;
+                }
+
+                &_input {
+                    width: 300px !important;
+                    height: 50px;
+
+                    padding: 0 0 0 10px;
+                }
+            }
+
+            &-checkPassword {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start !important;
+
+                &_label {
+                    display: flex;
+                    align-items: center;
+                    width: 300px !important;
+                    height: 50px;
+                }
+
+                &_input {
+                    width: 300px !important;
+                    height: 50px;
+
+                    padding: 0 0 0 10px;
+                }
+            }
+
+            &-name {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start !important;
+
+                margin: 0 0 17px;
+
+                &_label {
+                    display: flex;
+                    align-items: center;
+
+                    width: 250px !important;
+                    height: 50px;
+                }
+
+                &_input {
+                    width: 250px !important;
+                    height: 50px;
+
+                    padding: 0 0 0 10px;
+                }
+            }
+
+            &-checkPassword {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start !important;
+
+                margin: 0 0 17px;
+
+                &_label {
+                    display: flex;
+                    align-items: center;
+
+                    width: 250px !important;
+                    height: 50px;
+                }
+
+                &_input {
+                    width: 250px !important;
+                    height: 50px;
+
+                    padding: 0 0 0 10px;
+                }
+            }
+
+            &-email {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start !important;
+
+                margin: 0 0 17px;
+
+                &_label {
+                    display: flex;
+                    align-items: center;
+
+                    width: 130px !important;
+                    height: 50px;
+                }
+
+                &_input {
+                    width: 250px !important;
+                    height: 50px;
+
+                    padding: 0 0 0 10px;
+                }
+            }
+
+            &-password {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start !important;
+
+                &_label {
+                    display: flex;
+                    align-items: center;
+                    width: 130px !important;
+                    height: 50px;
+                }
+
+                &_input {
+                    width: 250px !important;
+                    height: 50px;
+
+                    padding: 0 0 0 10px;
+                }
+            }
+
+            &-submit {
+                width: 220px;
+                height: 55px;
+
+                margin: 80px 0 300px !important;
+
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 24px;
+            }
+        }
+    }
 
     &__form {
         display: flex;
