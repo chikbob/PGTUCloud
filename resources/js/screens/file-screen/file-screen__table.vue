@@ -92,7 +92,350 @@ function soon() {
 </script>
 
 <style lang="scss" scoped>
+@import "../../../../public/sass/media_mixin.scss";
+
 .file-screen {
+    @include _1250 {
+
+    }
+
+    @include _1170 {
+        &__table {
+            margin: 0 120px 100px !important;
+
+            &-empty {
+                margin: 100px 0 450px;
+
+                font-size: 34px;
+            }
+
+            &-thead {
+                display: flex;
+
+                &_tr {
+                    display: flex;
+                }
+
+                &_th {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    width: 200px !important;
+                    height: 52px;
+
+                    font-size: 24px;
+                    line-height: 29px;
+                }
+            }
+
+            &-tbody {
+                display: flex;
+
+                &_tr {
+                    display: flex;
+                }
+
+                &_td {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    width: 200px !important;
+                    height: 53px;
+
+                    text-align: center;
+
+                    font-size: 20px !important;
+                    line-height: 29px;
+
+                    &_load {
+                        width: 100px !important;
+                        height: 27px;
+
+                        font-size: 14px !important;
+                        line-height: 22px;
+                    }
+
+                    &_del {
+                        width: 80px !important;
+                        height: 27px;
+
+                        margin: 0 0 0 7px;
+
+                        font-size: 14px !important;
+                        line-height: 22px;
+                    }
+                }
+            }
+        }
+    }
+
+    @include _979 {
+        &__table {
+            margin: 0 120px 100px !important;
+
+            &-thead {
+                display: flex;
+
+                &_tr {
+                    display: flex;
+                }
+
+                &_th {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    width: 170px !important;
+                    height: 52px;
+
+                    font-size: 20px !important;
+                    line-height: 29px;
+                }
+            }
+
+            &-tbody {
+                display: flex;
+
+                &_tr {
+                    display: flex;
+                }
+
+                &_td {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    width: 170px !important;
+                    height: 53px;
+
+                    text-align: center;
+
+                    font-size: 16px !important;
+                    line-height: 29px;
+
+                    &_load {
+                        width: 80px !important;
+                        height: 27px;
+
+                        font-size: 12px !important;
+                        line-height: 22px;
+                    }
+
+                    &_del {
+                        width: 70px !important;
+                        height: 27px;
+
+                        margin: 0 0 0 7px;
+
+                        font-size: 12px !important;
+                        line-height: 22px;
+                    }
+                }
+            }
+        }
+    }
+
+    @include _768 {
+        &__table {
+            margin: 0 120px 100px !important;
+
+            &-thead {
+                display: flex;
+
+                &_tr {
+                    display: flex;
+                }
+
+                &_th {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    width: 150px !important;
+                    height: 52px;
+
+                    font-size: 18px !important;
+                    line-height: 29px;
+                }
+            }
+
+            &-tbody {
+                display: flex;
+
+                &_tr {
+                    display: flex;
+                }
+
+                &_td {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    width: 150px !important;
+                    height: 53px;
+
+                    text-align: center;
+
+                    font-size: 14px !important;
+                    line-height: 29px;
+
+                    &_load {
+                        width: 70px !important;
+                        height: 27px;
+
+                        font-size: 10px !important;
+                        line-height: 22px;
+                    }
+
+                    &_del {
+                        width: 60px !important;
+                        height: 27px;
+
+                        margin: 0 0 0 7px;
+
+                        font-size: 10px !important;
+                        line-height: 22px;
+                    }
+                }
+            }
+        }
+    }
+
+    @include _600 {
+        &__table {
+            margin: 0 120px 100px !important;
+
+            &-thead {
+                display: flex;
+
+                &_tr {
+                    display: flex;
+                }
+
+                &_th {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    width: 130px !important;
+                    height: 52px;
+
+                    font-size: 18px !important;
+                    line-height: 29px;
+                }
+            }
+
+            &-tbody {
+                display: flex;
+
+                &_tr {
+                    display: flex;
+                }
+
+                &_td {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    width: 130px !important;
+                    height: 53px;
+
+                    text-align: center;
+
+                    font-size: 12px !important;
+                    line-height: 29px;
+
+                    &_load {
+                        width: 60px !important;
+                        height: 27px;
+
+                        font-size: 8px !important;
+                        line-height: 22px;
+                    }
+
+                    &_del {
+                        width: 50px !important;
+                        height: 27px;
+
+                        margin: 0 0 0 7px;
+
+                        font-size: 8px !important;
+                        line-height: 22px;
+                    }
+                }
+            }
+        }
+    }
+
+    @include _480 {
+        &__table {
+            margin: 0 120px 100px !important;
+
+            &-thead {
+                display: flex;
+
+                &_tr {
+                    display: flex;
+                }
+
+                &_th {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    width: 90px !important;
+                    height: 52px;
+
+                    font-size: 14px !important;
+                    line-height: 29px;
+                }
+            }
+
+            &-tbody {
+                display: flex;
+
+                &_tr {
+                    display: flex;
+                }
+
+                &_td {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    width: 90px !important;
+                    height: 53px;
+
+                    text-align: center;
+
+                    font-size: 9px !important;
+                    line-height: 29px;
+
+                    &_load {
+                        width: 43px !important;
+                        height: 23px !important;
+
+                        font-size: 5px !important;
+                        line-height: 22px;
+                    }
+
+                    &_del {
+                        width: 32px !important;
+                        height: 23px !important;
+
+                        margin: 0 0 0 7px;
+
+                        font-size: 5px !important;
+                        line-height: 22px;
+                    }
+                }
+            }
+        }
+    }
+
+
     &__table {
         margin: 0 200px 100px;
         border-collapse: collapse;
@@ -101,7 +444,7 @@ function soon() {
         border-radius: 10px;
 
         &-empty {
-            margin: 100px 0 400px;
+            margin: 100px 0 450px;
 
             font-size: 34px;
         }
