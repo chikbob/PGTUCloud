@@ -1,14 +1,14 @@
 <template>
-    <div :class="cnRegisterScreen('form-error')" class="error-message" v-if="showErrorMessage">
-        {{ showMessage() }}
-    </div>
     <form :class="cnRegisterScreen('form')" @submit.prevent="registerUser">
+        <div :class="cnRegisterScreen('form-error')" class="error-message" v-if="showErrorMessage">
+            {{ showMessage() }}
+        </div>
         <div :class="cnRegisterScreen('form-name')">
             <label :class="cnRegisterScreen('form-name_label')" for="name">Имя:</label>
             <input :class="cnRegisterScreen('form-name_input')" type="text" id="name" v-model="form.name" required>
         </div>
         <div :class="cnRegisterScreen('form-email')">
-            <label :class="cnRegisterScreen('form-email_label')" for="email">Email:</label>
+            <label :class="cnRegisterScreen('form-email_label')" for="email">Почта:</label>
             <input :class="cnRegisterScreen('form-email_input')" type="email" id="email" v-model="form.email"
                    required>
         </div>
@@ -23,7 +23,11 @@
             <input :class="cnRegisterScreen('form-checkPassword_input')" type="password" id="checkPassword"
                    v-model="form.checkPassword" required>
         </div>
-        <button :class="cnRegisterScreen('form-submit')" type="submit" :disabled="!isFormValid">Регистрация</button>
+        <button :class="cnRegisterScreen('form-submit')" type="submit" @click="timeoutFunction"
+                :disabled="!isFormValid">
+            Регистрация
+        </button>
+        {{ showErrorMessage }}
     </form>
 </template>
 
@@ -55,6 +59,12 @@ function registerUser() {
         showErrorMessage.value = false
         Inertia.post('/register/success', form.value)
     }
+}
+
+function timeoutFunction() {
+    return setTimeout(() => {
+        showErrorMessage.value = true
+    }, 1000);
 }
 </script>
 
@@ -96,7 +106,7 @@ function registerUser() {
             &-error {
                 color: rgb(213, 64, 64);
 
-                margin: 0 0 15px
+                margin: 0 0 30px
             }
 
             &-name {
@@ -215,7 +225,7 @@ function registerUser() {
             &-error {
                 color: rgb(213, 64, 64);
 
-                margin: 0 0 15px
+                margin: 0 0 30px
             }
 
             &-name {
@@ -331,7 +341,7 @@ function registerUser() {
             &-error {
                 color: rgb(213, 64, 64);
 
-                margin: 0 0 15px
+                margin: 0 0 30px
             }
 
             &-name {
@@ -492,7 +502,7 @@ function registerUser() {
         &-error {
             color: rgb(213, 64, 64);
 
-            margin: 0 0 15px
+            margin: 0 0 30px
         }
 
         &-name {
