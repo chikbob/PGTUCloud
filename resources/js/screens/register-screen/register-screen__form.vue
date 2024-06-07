@@ -64,7 +64,7 @@ function registerUser() {
 function timeoutFunction() {
     return setTimeout(() => {
         showErrorMessage.value = true
-    }, 1000);
+    }, 2000);
 }
 </script>
 
@@ -628,6 +628,12 @@ function timeoutFunction() {
             border-radius: 5px;
 
             background: rgb(236, 241, 255);
+
+            &:hover {
+                background: rgb(152, 178, 255);
+                border: 1px solid rgb(25, 40, 124);
+                transition: 1s;
+            }
         }
     }
 }

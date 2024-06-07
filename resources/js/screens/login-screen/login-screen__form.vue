@@ -305,23 +305,9 @@ function timeoutFunction() {
                 font-size: 20px;
                 font-weight: 400;
                 line-height: 24px;
+
             }
         }
-    }
-
-    &__header {
-        display: flex;
-        justify-content: center;
-
-        width: 543px;
-        height: 43px;
-
-        color: rgb(24, 24, 24);
-        font-size: 32px;
-        font-weight: 600;
-        line-height: 38px;
-
-        margin: 53px 0;
     }
 
     &__form {
@@ -406,6 +392,12 @@ function timeoutFunction() {
             border-radius: 5px;
 
             background: rgb(236, 241, 255);
+
+            &:hover {
+                background: rgb(152, 178, 255);
+                border: 1px solid rgb(25, 40, 124);
+                transition: 1s;
+            }
         }
     }
 }
